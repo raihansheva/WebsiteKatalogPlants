@@ -1,0 +1,176 @@
+/* main area oss */
+/* main {
+    height: 100vh;
+} */
+
+section {
+  padding: 0px 128px;
+  /* margin-top: 40px; */
+  /* width: 100%; */
+  height: calc(100vh - 80px);
+  /* background-color: antiquewhite; */
+}
+
+.area-welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px red solid; */
+  height: 400px;
+}
+
+.area-text-welcome {
+  width: 65%;
+  text-align: center;
+}
+
+.title-welcome {
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--color-dark);
+  margin: 0px;
+}
+
+.desc-welcome {
+  font-size: 16px;
+  color: var(--color-dark);
+  margin: 0px;
+}
+
+.area-button-welcome {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button-explore {
+  width: 160px;
+  height: 40px;
+  border: 2px solid var(--color-dark);
+  border-radius: 25px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-button-explore {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--color-dark);
+  margin: 0px;
+}
+
+/* ++++++++++++++++++++++++++++ */
+
+/* area heroo */
+.area-hero {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+}
+
+.area-kiri-hero {
+  width: 50%;
+  height: 100%;
+  height: fit-content;
+  /* border: 1px red solid; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.area-image-hero {
+  width: 100%;
+  height: 400px;
+  background-color: beige;
+  border-radius: 16px;
+  background-image: url("../image/heroSection.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.area-kanan-hero {
+  width: 50%;
+  /* height: 100%; */
+  /* border: 1px blue solid; */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+.title-hero {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--color-dark);
+  margin: 0px;
+}
+
+.desc-hero {
+  font-size: 16px;
+  color: var(--color-dark);
+  margin: 0px;
+  text-align: start;
+  margin-top: 10px;
+}
+
+.header-artikel {
+  text-align: center;
+}
+
+.title-galeri {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--color-dark);
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.area-hero-artikel {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+}
+
+.area-image-hero1 {
+  width: 33.33%;
+  height: 350px;
+  background-color: beige;
+  border-radius: 16px;
+  background-image: url("../image/carousel1.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+.area-image-hero2 {
+  width: 33.33%;
+  height: 350px;
+  background-color: beige;
+  border-radius: 16px;
+  background-image: url("../image/carousel2.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+.area-image-hero3 {
+  width: 33.33%;
+  height: 350px;
+  background-color: beige;
+  border-radius: 16px;
+  background-image: url("../image/carousel3.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+
+/* ++++++++++++++++++++++++++++ */
