@@ -4,7 +4,7 @@
   /* Warna dasar */
   --color-dark: #000000;
   --color-light: #FFFFFF;
-  --color-primary: #B6F500;
+  --color-primary: #355F3E;
 
   --color-primary-light: #DFFF4C;
   --color-primary-dark: #8CC700;  
@@ -12,25 +12,33 @@
   --color-text: var(--color-light);
 }
 
+*{
+  font-family: 'Poppins', sans-serif;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  /* background-color: var(--color-bg); */
-  /* color: var(--color-text); */
+  height: auto;
 }
 
 /* navbar area */
 nav {
   /* border: 1px black solid; */
   width: auto;
-  height: 60px;
+  height: 80px;
   padding: 10px 128px;
   position: sticky;
   top: 0;
     background-color: var(--color-light);
+    z-index: 99;
 }
 
 .area-navbar {
@@ -87,6 +95,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  color: #FFFFFF;
 }
 
 .button-login:hover {
@@ -96,9 +106,125 @@ nav {
 
 .link-login {
   text-decoration: none;
-  color: var(--color-dark);
+  color: var(--color-light);
+  padding: 0px;
+  margin: 0px;
 }
+
+.area-modal-login {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px red solid; */
+}
+
+.area-modal-image {
+  width: 100%;
+  height: 200px;
+  background-image: url('../image/stacked-waves-haikei\ \(1\).png');
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.area-login{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 0px 20px 0px;
+}
+
+.form-login{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-login-brand {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--color-light);
+  font-family: "Poppins", sans-serif;
+}
+
+.line{
+  width: 60%;
+  height: 1px;
+  background-color: #d0d0d6;
+  border-radius: 8px;
+  margin: 30px 0px 10px 0px;
+}
+
+.title-login {
+  font-size: 20px;
+  font-weight: 500;
+  color: #979797;
+  font-family: "Poppins", sans-serif;
+}
+.title-logout {
+  font-size: 18px;
+  font-weight: 500;
+  color: #979797;
+  font-family: "Poppins", sans-serif;
+}
+
+.input-login {
+  width: 60%;
+  height: 36px;
+  border: 1px solid #d0d0d6;
+  border-radius: 8px;
+  padding: 0px 10px;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.input-login:focus {
+  outline: none;
+}
+
+.input-login::placeholder {
+  font-size: 14px;
+  color: #d0d0d6;
+  font-family: "poppins", sans-serif;
+}
+
+.button-submit-login {
+  width: 60%;
+  height: 36px;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
 /* ++++++++++++++++++++++++++++ */
+
+/* main konten */
+section {
+  padding: 0px 128px;
+  /* margin-top: 40px; */
+  /* width: 100%; */
+  min-height: calc(100vh - 80px);
+  height: auto;
+  /* background-color: antiquewhite; */
+}
+/* =========================== */
+
 
 /* footer */
 footer {
@@ -118,4 +244,17 @@ footer {
 .text-footer {
   color: var(--color-light);
   font-size: 14px;
+  margin: 0px;
+}
+
+
+.notifAlert{
+  width: auto;
+  height: auto;
+}
+
+.textNotif{
+  color: rgb(241, 35, 35);
+  font-size: 14px;
+  margin: 0px;
 }

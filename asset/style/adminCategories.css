@@ -1,0 +1,36 @@
+.area-data-kategori{
+    text-align: center;
+}
+
+.title-page-kategori{
+    padding-top: 10px;
+}
+
+.header-data-kategori{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.area-tabel-kategori{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.button-input-kat{
+    width: fit-content;
+    height: auto;
+    padding: 8px 12px;
+    background-color: var(--color-primary);
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    color: var(--color-light);
+}
+
+.button-input-kat p{
+    margin: 0px;
+    font-size: 14px;
+    color: var(--color-light);
+}
