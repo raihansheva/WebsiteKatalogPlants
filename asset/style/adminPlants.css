@@ -1,0 +1,58 @@
+.area-data-tanaman{
+    text-align: center;
+}
+
+.title-page-tanaman{
+    padding-top: 10px;
+}
+
+.header-data-tanaman{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.area-tabel-tanaman{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.button-input-tan{
+    width: fit-content;
+    height: auto;
+    padding: 8px 12px;
+    background-color: var(--color-primary);
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    color: var(--color-light);
+}
+
+.button-input-tan p{
+    margin: 0px;
+    font-size: 14px;
+    color: var(--color-light);
+}
+
+.button-input-tan-save{
+    width: fit-content;
+    height: auto;
+    padding: 8px 12px;
+    background-color: var(--color-dark);
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    color: var(--color-light);
+}
+
+.button-input-tan-save p{
+    margin: 0px;
+    font-size: 14px;
+    color: var(--color-light);
+}
+
+.area-input-kiri, .area-input-kanan{
+    width: 50%;
+    height: auto;
+}
