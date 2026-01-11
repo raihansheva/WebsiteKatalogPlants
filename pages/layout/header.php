@@ -29,9 +29,9 @@ session_start();
         <div class="area-navbar">
             <div class="logo">Floratify.</div>
             <div class="area-menu-nav">
-                <a href="index.php" class="link-menu">Home</a>
+                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#' : 'index.php'; ?>" class="link-menu">Home</a>
                 <a href="plant.php" class="link-menu">Plant</a>
-                <a href="#" class="link-menu">Artikel</a>
+                <a href="#" class="link-menu">Categorie</a>
                 <a href="#about" class="link-menu">About</a>
                 <div
                     class="button-login"
