@@ -13,8 +13,8 @@ include 'layout/header.php';
         </p>
       </div>
       <div class="area-button-welcome">
-        <a href="#" class="button-explore">
-          <p class="text-button-explore">Explore Now</p>
+        <a href="plant.php" class="button-explore">
+          <p class="text-button-explore">Jelajahi Sekarang</p>
         </a>
       </div>
     </div>
