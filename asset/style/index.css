@@ -63,20 +63,32 @@
 .button-explore {
   width: 160px;
   height: 40px;
-  border: 2px solid var(--color-dark);
   border-radius: 25px;
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-dark);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+.button-explore:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
 }
 
 .text-button-explore {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   color: var(--color-dark);
-  margin: 0px;
+  margin: 0;
 }
+
 
 /* ++++++++++++++++++++++++++++ */
 
