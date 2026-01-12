@@ -7,13 +7,9 @@ include 'layout/header.php';
   <div class="area-welcome">
     <div class="area-welcome-luar">
       <div class="area-text-welcome">
-        <h1 class="title-welcome">Welcome to Floratify.</h1>
+        <h1 class="title-welcome">Selamat datang di Floratify.</h1>
         <p class="desc-welcome">
-          Discover a world of plants at your fingertips. Explore our
-          extensive catalog, learn about various species, and find the
-          perfect plants for your home or garden. Whether you're a seasoned
-          gardener or just starting out, PlantKatalog is your go-to resource
-          for all things green and growing.
+          Temukan dunia tanaman di ujung jari Anda. Jelajahi katalog kami yang lengkap, pelajari berbagai jenis tanaman, dan temukan tanaman yang sempurna untuk rumah atau kebun Anda. Baik Anda seorang pekebun berpengalaman maupun baru memulai, Floratify. adalah sumber utama Anda untuk segala hal tentang tanaman hijau dan pertumbuhannya.
         </p>
       </div>
       <div class="area-button-welcome">
@@ -31,12 +27,11 @@ include 'layout/header.php';
       <div class="area-image-hero"></div>
     </div>
     <div class="area-kanan-hero">
-      <h2 class="title-hero">Explore Our Extensive Plant Catalog</h2>
+      <h2 class="title-hero">
+        Jelajahi Katalog Tanaman Kami yang Lengkap</h2>
       <p class="desc-hero">
-        Dive into our diverse collection of plants, from vibrant flowers to
-        lush greenery. Each entry in our catalog provides detailed
-        information, care tips, and stunning images to help you choose the
-        perfect plants for your space.
+        Jelajahi koleksi tanaman kami yang beragam, mulai dari bunga-bunga yang semarak hingga tanaman hijau yang rimbun.
+        Setiap entri dalam katalog kami menyediakan informasi terperinci, tips perawatan, dan gambar-gambar menakjubkan untuk membantu Anda memilih tanaman yang sempurna untuk ruangan Anda.
       </p>
     </div>
   </div>
@@ -45,14 +40,11 @@ include 'layout/header.php';
 <section>
   <div class="area-hero-artikel">
     <div class="header-artikel">
-      <h2 class="title-galeri">About</h2>
+      <h2 class="title-galeri">About Floratify.</h2>
     </div>
     <div class="area-content-artikel">
       <p class="desk-artikel">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-        officiis quis iure blanditiis minima obcaecati molestias, facilis ut
-        nesciunt, assumenda nihil numquam consequuntur, distinctio
-        laboriosam.
+        Floratify adalah platform yang membantu Anda mengenal dan menjelajahi berbagai jenis tanaman dengan mudah. Dari tanaman hias, kami menyediakan informasi yang jelas dan praktis untuk mendukung perjalanan hijau Anda. Baik untuk pemula maupun pecinta tanaman berpengalaman, PlantKatalog hadir sebagai sumber inspirasi dan referensi terpercaya.
       </p>
     </div>
   </div>
