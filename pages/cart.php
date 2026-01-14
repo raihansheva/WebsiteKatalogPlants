@@ -31,7 +31,7 @@ $no = 1;
 
 <section>
     <div class="area-header-cart">
-        <h2>Cart</h2>
+        <h2>Keranjang Hijau.</h2>
     </div>
 
     <div class="area-cart">
@@ -62,7 +62,7 @@ $no = 1;
                     </div>
 
                     <div class="area-stok-plant">
-                        <p class="stok-cart">x<?= $row['quantity']; ?></p>
+                        <p class="stok-cart"><?= $row['quantity']; ?></p>
                     </div>
                     <span class="btn-remove" data-cart-id="<?= $row['cart_id']; ?>">Hapus</span>
                 </div>

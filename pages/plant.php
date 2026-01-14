@@ -1,4 +1,5 @@
 <?php
+
 $page_css = 'plant.css';
 include 'layout/header.php';
 include '../database/koneksi.php';
@@ -8,6 +9,7 @@ $sqlT = "SELECT tanaman.*, kategori.nama_kategori
         JOIN kategori ON tanaman.kategori_id = kategori.id";
 $resultT = $koneksi->query($sqlT);
 
+$isLogin = isset($_SESSION['user_id']);
 ?>
 
 <section>
@@ -37,14 +39,21 @@ $resultT = $koneksi->query($sqlT);
                   <div class="area-detail-plant">
                     <div class="area-image-detail">
                       <img src="../uploads/<?= $row['foto'] ?>" class="image-detail" alt="" srcset="">
-                      <form action="../functions/orders/tambahKeranjang.php" method="POST">
+                      <!-- <form action="../functions/orders/tambahKeranjang.php" method="POST">
                         <input type="hidden" name="tanaman_id" value="<?= $row['id']; ?>">
-                        <div class="area-button-cart">
-                        <button type="submit" class="button-cart">
+                        
+                      </form> -->
+                      <div class="area-button-cart">
+                        <button
+                          class="button-cart"
+                          data-tanaman-id="<?= $row['id'] ?>"
+                          <?= !$isLogin ? 'data-bs-toggle="tooltip"
+    data-bs-placement="bottom"
+    data-bs-custom-class="custom-tooltip"
+    data-bs-title="Harus login untuk menambahkan ke keranjang" disabled' : '' ?>>
                           <p>Add to cart</p>
                         </button>
                       </div>
-                      </form>
                     </div>
                     <div class="area-content-detail">
                       <p class="name-plant"><?= $row['nama_tanaman'] ?></p>
@@ -65,7 +74,9 @@ $resultT = $koneksi->query($sqlT);
                         <div class="area-price-in">
                           <p class="price-plant">Rp <?= number_format($row['harga'], 0, ',', '.') ?></p>
                           <span>|</span>
-                          <p class="stok-plant">Stok: <?= $row['stok'] ?></p>
+                          <p class="stok-plant">Stok: <span class="stok-value" data-id="<?= $row['id']; ?>">
+                              <?= $row['stok']; ?>
+                            </span></p>
                         </div>
                         <div class="button-status">
                           <p class="status-plant"><?= $row['status'] ?></p>
@@ -88,5 +99,27 @@ $resultT = $koneksi->query($sqlT);
     </div>
   </div>
 </section>
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  document.querySelectorAll('.button-cart').forEach(button => {
+    button.addEventListener('click', function() {
+      const tanamanId = this.dataset.tanamanId;
 
+      fetch('../functions/orders/tambahKeranjang.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: `tanaman_id=${tanamanId}`,
+        }).then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            const stok = document.querySelector(`.stok-value[data-id="${tanamanId}"]`);
+            stok.textContent = data.new_stok;
+          } else {}
+        });
+    });
+  });
+</script>
 <?php include 'layout/footer.php'; ?>

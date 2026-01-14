@@ -30,18 +30,21 @@ session_start();
             <div class="logo">Floratify.</div>
             <div class="area-menu-nav">
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#' : 'index.php'; ?>" class="link-menu">Home</a>
-                <a href="plant.php" class="link-menu">Plant</a>
+                <a href="plant.php" class="link-menu">Plant & Shop</a>
                 <a href="#" class="link-menu">Categorie</a>
-                <a href="#about" class="link-menu">About</a>
                 <?php if (isset($_SESSION['user'])): ?>
                     <a href="cart.php" class="link-menu">Cart</a>
                 <?php else: ?>
-                    <div
-                        class="button-register"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModalRegister">
-                        <p class="link-register">Register</p>
-                    </div>
+                <?php endif; ?>
+                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#about' : 'index.php#about'; ?>" class="link-menu">About</a>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <?php else: ?>
+                        <div
+                            class="button-register"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModalRegister">
+                            <p class="link-register">Register</p>
+                        </div>
                 <?php endif; ?>
             </div>
         </div>
