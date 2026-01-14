@@ -34,7 +34,7 @@ session_start();
                 <a href="#" class="link-menu">Categorie</a>
                 <a href="#about" class="link-menu">About</a>
                 <?php if (isset($_SESSION['user'])): ?>
-                    <a href="#about" class="link-menu">Shop</a>
+                    <a href="cart.php" class="link-menu">Cart</a>
                 <?php else: ?>
                     <div
                         class="button-register"

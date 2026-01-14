@@ -28,6 +28,11 @@ body {
   height: auto;
 }
 
+p{
+  margin: 0px;
+  padding: 0px;
+}
+
 /* navbar area */
 nav {
   /* border: 1px black solid; */

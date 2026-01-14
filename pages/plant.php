@@ -23,6 +23,7 @@ $resultT = $koneksi->query($sqlT);
             <div class="area-image-plant">
               <img src="../uploads/<?= $row['foto'] ?>" class="image-plant" alt="">
             </div>
+
           </div>
           <div
             class="modal fade"
@@ -36,6 +37,14 @@ $resultT = $koneksi->query($sqlT);
                   <div class="area-detail-plant">
                     <div class="area-image-detail">
                       <img src="../uploads/<?= $row['foto'] ?>" class="image-detail" alt="" srcset="">
+                      <form action="../functions/orders/tambahKeranjang.php" method="POST">
+                        <input type="hidden" name="tanaman_id" value="<?= $row['id']; ?>">
+                        <div class="area-button-cart">
+                        <button type="submit" class="button-cart">
+                          <p>Add to cart</p>
+                        </button>
+                      </div>
+                      </form>
                     </div>
                     <div class="area-content-detail">
                       <p class="name-plant"><?= $row['nama_tanaman'] ?></p>
@@ -50,6 +59,16 @@ $resultT = $koneksi->query($sqlT);
                         </div>
                         <div class="breads-season">
                           <p class="text-breads"><?= $row['musim'] ?></p>
+                        </div>
+                      </div>
+                      <div class="area-price">
+                        <div class="area-price-in">
+                          <p class="price-plant">Rp <?= number_format($row['harga'], 0, ',', '.') ?></p>
+                          <span>|</span>
+                          <p class="stok-plant">Stok: <?= $row['stok'] ?></p>
+                        </div>
+                        <div class="button-status">
+                          <p class="status-plant"><?= $row['status'] ?></p>
                         </div>
                       </div>
                     </div>

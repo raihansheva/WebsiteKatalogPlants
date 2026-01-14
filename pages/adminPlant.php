@@ -17,7 +17,7 @@ $resultK = $koneksi->query($sqlK);
         <h2 class="title-page-Tanaman">Page Tanaman</h2>
         <div class="header-data-Tanaman">
             <div class="button-input-tan" data-bs-toggle="modal" data-bs-target="#exampleModalInputTanaman">
-                <p>Tambah Kategori</p>
+                <p>Tambah Tanaman</p>
             </div>
 
             <div class="modal fade" id="exampleModalInputTanaman" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
