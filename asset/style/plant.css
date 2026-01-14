@@ -28,7 +28,7 @@
 
 .card-plant {
   width: calc(25% - 16px);
-  height: 300px;
+  height: 280px;
   background-color: var(--color-light);
   border-radius: 24px;
   padding: 10px;

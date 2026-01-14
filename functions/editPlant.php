@@ -7,9 +7,12 @@ $kategori_id  = $_POST['kategori_id'] ?? '';
 $nama         = $_POST['nama_tanaman'] ?? '';
 $asal         = $_POST['asal_tanaman'] ?? '';
 $deskripsi    = $_POST['deskripsi'] ?? '';
+$harga        = $_POST['harga'] ?? '';
+$stok         = $_POST['stok'] ?? '';
+$status       = $_POST['status'] ?? '';
 $musim        = $_POST['musim'] ?? '';
 
-if (empty($id) || empty($kategori_id) || empty($nama) || empty($asal) || empty($deskripsi) || empty($musim)) {
+if (empty($id) || empty($kategori_id) || empty($nama) || empty($asal) || empty($deskripsi) || empty($musim) || empty($harga) || empty($stok)) {
     $_SESSION['errorPlant'] = "Semua field wajib diisi";
     header("Location: ../pages/adminPlant.php");
     exit;
@@ -44,6 +47,9 @@ $query = "UPDATE tanaman SET
             nama_tanaman = '$nama',
             asal_tanaman = '$asal',
             deskripsi_tanaman = '$deskripsi',
+            harga = '$harga',
+            stok = '$stok',
+            status = '$status',
             musim = '$musim',
             foto = '$fotoBaru',
             updated_at = NOW()

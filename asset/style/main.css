@@ -1,20 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
   /* Warna dasar */
   --color-dark: #000000;
-  --color-light: #FFFFFF;
-  --color-primary: #355F3E;
+  --color-light: #ffffff;
+  --color-primary: #355f3e;
 
-  --color-primary-light: #DFFF4C;
-  --color-primary-dark: #8CC700;  
-  --color-bg: var(--color-dark);   
+  --color-primary-light: #dfff4c;
+  --color-primary-dark: #8cc700;
+  --color-bg: var(--color-dark);
   --color-text: var(--color-light);
 }
 
-*{
-  font-family: 'Poppins', sans-serif;
-
+* {
+  font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -37,8 +36,8 @@ nav {
   padding: 10px 128px;
   position: sticky;
   top: 0;
-    background-color: var(--color-light);
-    z-index: 99;
+  background-color: var(--color-light);
+  z-index: 99;
 }
 
 .area-navbar {
@@ -96,7 +95,7 @@ nav {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .button-login:hover {
@@ -124,7 +123,7 @@ nav {
 .area-modal-image {
   width: 100%;
   height: 200px;
-  background-image: url('../image/stacked-waves-haikei\ \(1\).png');
+  background-image: url("../image/stacked-waves-haikei\ \(1\).png");
   background-size: cover;
   background-position: bottom;
   border-radius: 8px;
@@ -133,7 +132,7 @@ nav {
   align-items: center;
 }
 
-.area-login{
+.area-login {
   width: 100%;
   height: auto;
   display: flex;
@@ -143,7 +142,7 @@ nav {
   padding: 0px 0px 20px 0px;
 }
 
-.form-login{
+.form-login {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -158,7 +157,7 @@ nav {
   font-family: "Poppins", sans-serif;
 }
 
-.line{
+.line {
   width: 60%;
   height: 1px;
   background-color: #d0d0d6;
@@ -212,6 +211,158 @@ nav {
   cursor: pointer;
 }
 
+/* register */
+.button-register {
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.button-register:hover {
+  background-color: var(--color-primary-dark);
+  transition: 0.3s;
+}
+
+.link-register {
+  text-decoration: none;
+  color: var(--color-light);
+  padding: 0px;
+  margin: 0px;
+}
+
+.area-modal-register {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px red solid; */
+}
+
+.area-modal-image-register {
+  width: 100%;
+  height: 390px;
+  background-image: url("../image/stacked-waves-haikei\ \(1\).png");
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+.tagline-register {
+  font-size: 38px;
+  font-weight: bold;
+  color: var(--color-light);
+  font-family: "Poppins", sans-serif;
+}
+
+.area-register {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 0px 20px 0px;
+}
+
+.form-register {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-brand-register {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--color-dark);
+  font-family: "Poppins", sans-serif;
+}
+
+.line {
+  width: 60%;
+  height: 1px;
+  background-color: #d0d0d6;
+  border-radius: 8px;
+  margin: 0px 0px 10px 0px;
+}
+
+.title-register {
+  font-size: 20px;
+  font-weight: 500;
+  color: #979797;
+  font-family: "Poppins", sans-serif;
+}
+.title-logout {
+  font-size: 18px;
+  font-weight: 500;
+  color: #979797;
+  font-family: "Poppins", sans-serif;
+}
+
+.input-register {
+  width: 80%;
+  height: 36px;
+  border: 1px solid #d0d0d6;
+  border-radius: 8px;
+  padding: 0px 10px;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.input-register:focus {
+  outline: none;
+}
+
+.input-register::placeholder {
+  font-size: 14px;
+  color: #d0d0d6;
+  font-family: "poppins", sans-serif;
+}
+
+.button-submit-register {
+  width: 60%;
+  height: 36px;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.span-register {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.textS {
+  cursor: pointer;
+}
+
+.textS:hover {
+  text-decoration: underline;
+}
+
 /* ++++++++++++++++++++++++++++ */
 
 /* main konten */
@@ -224,7 +375,6 @@ section {
   /* background-color: antiquewhite; */
 }
 /* =========================== */
-
 
 /* footer */
 footer {
@@ -247,13 +397,12 @@ footer {
   margin: 0px;
 }
 
-
-.notifAlert{
+.notifAlert {
   width: auto;
   height: auto;
 }
 
-.textNotif{
+.textNotif {
   color: rgb(241, 35, 35);
   font-size: 14px;
   margin: 0px;

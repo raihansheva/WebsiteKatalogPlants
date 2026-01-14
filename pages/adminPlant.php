@@ -21,14 +21,14 @@ $resultK = $koneksi->query($sqlK);
             </div>
 
             <div class="modal fade" id="exampleModalInputTanaman" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-dialog modal-lg ">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Form Input Tanaman</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form action="../functions/tambahPlant.php" method="post" enctype="multipart/form-data">
-                            <div class="modal-body d-flex gap-4">
+                            <div class="modal-body d-flex gap-4 flex-wrap">
                                 <?php if (isset($_SESSION['errorTanaman'])): ?>
                                     <div class="notifAlert">
                                         <p class="textNotif"><?= ($_SESSION['errorTanaman']) ?></p>
@@ -55,8 +55,6 @@ $resultK = $koneksi->query($sqlK);
                                         <label for="exampleFormControlInput1" class="form-label">Foto Tanaman :</label>
                                         <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukan kategori" name="foto">
                                     </div>
-                                </div>
-                                <div class="area-input-kanan">
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Asal & Penemuan Tanaman :</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukan kategori" name="asal_tanaman">
@@ -65,10 +63,29 @@ $resultK = $koneksi->query($sqlK);
                                         <label for="exampleFormControlInput1" class="form-label">Musim :</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukan kategori" name="musim">
                                     </div>
+                                </div>
+                                <div class="area-input-kanan">
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Deskripsi :</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi"></textarea>
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Harga Tanaman :</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Rp. " name="harga">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Stok :</label>
+                                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Stok" name="stok">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Status :</label>
+                                        <select class="form-select" name="status" required>
+                                            <option value="" disabled selected>-- Pilih Status --</option>
+                                            <option value="tersedia">Tersedia</option>
+                                            <option value="sedang_restok">Sedang Restok</option>
+                                        </select>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -79,7 +96,7 @@ $resultK = $koneksi->query($sqlK);
                 </div>
             </div>
         </div>
-        <div class="area-tabel-tanaman">
+        <div class="area-tabel-tanaman table-responsive">
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -88,6 +105,9 @@ $resultK = $koneksi->query($sqlK);
                         <th>Nama Tanaman</th>
                         <th>Asal & Penemuan</th>
                         <th>Deskripsi</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Status</th>
                         <th>Musim</th>
                         <th>Foto</th>
                         <th>Aksi</th>
@@ -101,6 +121,9 @@ $resultK = $koneksi->query($sqlK);
                             <td><?= htmlspecialchars($row['nama_tanaman']) ?></td>
                             <td><?= htmlspecialchars($row['asal_tanaman']) ?></td>
                             <td><?= htmlspecialchars($row['deskripsi_tanaman']) ?></td>
+                            <td><?= htmlspecialchars($row['harga']) ?></td>
+                            <td><?= htmlspecialchars($row['stok']) ?></td>
+                            <td><?= htmlspecialchars($row['status']) ?></td>
                             <td><?= htmlspecialchars($row['musim']) ?></td>
                             <td><img style="width: 70px; height: 70px;" src="../uploads/<?= $row['foto'] ?>" alt="" srcset=""></td>
                             <td class="d-flex align-items-center gap-2 w-auto">
@@ -152,8 +175,6 @@ $resultK = $koneksi->query($sqlK);
                                                                 Kosongkan jika tidak ingin mengganti foto
                                                             </small>
                                                         </div>
-                                                    </div>
-                                                    <div class="area-input-kanan">
                                                         <div class="mb-3">
                                                             <label class="form-label">Asal & Penemuan Tanaman :</label>
                                                             <input
@@ -171,6 +192,28 @@ $resultK = $koneksi->query($sqlK);
                                                                 name="musim"
                                                                 value="<?= $row['musim'] ?>"
                                                                 required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="area-input-kanan">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">Harga Tanaman :</label>
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Rp. " value="<?= $row['harga'] ?>" name="harga">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">Stok :</label>
+                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Stok" value="<?= $row['stok'] ?>" name="stok">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">Status :</label>
+                                                            <select class="form-select" name="status" required>
+                                                                <option value="tersedia" <?= $row['status'] == 'tersedia' ? 'selected' : '' ?>>
+                                                                    Tersedia
+                                                                </option>
+                                                                <option value="sedang_restok" <?= $row['status'] == 'sedang_restok' ? 'selected' : '' ?>>
+                                                                    Sedang Restok
+                                                                </option>
+                                                            </select>
+
                                                         </div>
                                                         <div class="mb-3">
                                                             <label class="form-label">Deskripsi :</label>

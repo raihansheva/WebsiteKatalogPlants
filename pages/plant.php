@@ -19,14 +19,14 @@ $resultT = $koneksi->query($sqlT);
       <?php if ($resultT && $resultT->num_rows > 0) { ?>
         <?php while ($row = $resultT->fetch_assoc()): ?>
           <div class="card-plant" data-bs-toggle="modal"
-            data-bs-target="#exampleModalPlant">
+            data-bs-target="#exampleModalPlant<?= $row['id'] ?>">
             <div class="area-image-plant">
-              <img src="../asset/image/imagePlant1.png" class="image-plant" alt="">
+              <img src="../uploads/<?= $row['foto'] ?>" class="image-plant" alt="">
             </div>
           </div>
           <div
             class="modal fade"
-            id="exampleModalPlant"
+            id="exampleModalPlant<?= $row['id'] ?>"
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -35,21 +35,21 @@ $resultT = $koneksi->query($sqlT);
                 <div class="modal-body p-4">
                   <div class="area-detail-plant">
                     <div class="area-image-detail">
-                      <img src="../asset/image/imagePlant8.png" class="image-detail" alt="" srcset="">
+                      <img src="../uploads/<?= $row['foto'] ?>" class="image-detail" alt="" srcset="">
                     </div>
                     <div class="area-content-detail">
-                      <p class="name-plant">Calathea Makoyana</p>
+                      <p class="name-plant"><?= $row['nama_tanaman'] ?></p>
                       <p class="title-location-plant">​Asal & Penemuan</p>
-                      <p class="location-plant">Berasal dari Brasil Timur. Ditemukan pada era Victoria.</p>
+                      <p class="location-plant"><?= $row['asal_tanaman'] ?></p>
                       <div class="line-plant"></div>
                       <p class="title-desk-plant">​Deskripsi</p>
-                      <p class="desk-plant">Disebut "Peacock Plant" (Tanaman Merak) karena motif daunnya mirip ekor merak. Bagian bawah daun berwarna ungu kemerahan.</p>
+                      <p class="desk-plant"><?= $row['deskripsi_tanaman'] ?></p>
                       <div class="area-breads">
                         <div class="breads-family">
-                          <p class="text-breads">Marantacea</p>
+                          <p class="text-breads"><?= $row['nama_kategori'] ?></p>
                         </div>
                         <div class="breads-season">
-                          <p class="text-breads">Tropis</p>
+                          <p class="text-breads"><?= $row['musim'] ?></p>
                         </div>
                       </div>
                     </div>

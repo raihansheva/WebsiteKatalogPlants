@@ -33,18 +33,79 @@ session_start();
                 <a href="plant.php" class="link-menu">Plant</a>
                 <a href="#" class="link-menu">Categorie</a>
                 <a href="#about" class="link-menu">About</a>
-                <div
-                    class="button-login"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    <p class="link-login">Login</p>
-                </div>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <a href="#about" class="link-menu">Shop</a>
+                <?php else: ?>
+                    <div
+                        class="button-register"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModalRegister">
+                        <p class="link-register">Register</p>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
+
     <div
         class="modal fade"
-        id="exampleModal"
+        id="exampleModalRegister"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content rounded-4">
+                <div class="modal-body p-2">
+                    <div class="area-modal-register">
+                        <div class="area-modal-image-register">
+                            <h2 class="tagline-register">Bring Nature Home.</h2>
+                        </div>
+                        <div class="area-register">
+                            <h2 class="title-brand-register">Floratify.</h2>
+                            <div class="line"></div>
+                            <h2 class="title-register">Register</h2>
+                            <?php if (isset($_SESSION['error'])): ?>
+                                <div class="notifAlert">
+                                    <p class="textNotif"><?= ($_SESSION['error']) ?></p>
+                                </div>
+                            <?php endif; ?>
+                            <form class="form-register" action="../functions/regis.php" method="post">
+                                <input
+                                    class="input-register"
+                                    type="text"
+                                    name="nama"
+                                    id=""
+                                    placeholder="Nama" require />
+                                <input
+                                    class="input-register"
+                                    type="email"
+                                    name="email"
+                                    id=""
+                                    placeholder="Email" require />
+                                <input
+                                    class="input-register"
+                                    type="text"
+                                    name="username"
+                                    id=""
+                                    placeholder="Username" require />
+                                <input
+                                    class="input-register"
+                                    type="password"
+                                    name="password"
+                                    id=""
+                                    placeholder="Password" require />
+                                <button class="button-submit-register" type="submit">Submit</button>
+                                <span class="span-register">Sudah Punya Akun?, <span class="textS" data-bs-target="#exampleModalLogin" data-bs-toggle="modal">Login</span></span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="modal fade"
+        id="exampleModalLogin"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -56,7 +117,6 @@ session_start();
                             <h2 class="title-login-brand">Floratify.</h2>
                         </div>
                         <div class="area-login">
-                            <!--  -->
                             <div class="line"></div>
                             <h2 class="title-login">Login</h2>
                             <?php if (isset($_SESSION['error'])): ?>
@@ -78,6 +138,7 @@ session_start();
                                     id=""
                                     placeholder="Password" require />
                                 <button class="button-submit-login" type="submit">Login</button>
+                                <span class="span-register">Belum Punya Akun?, <span class="textS" data-bs-target="#exampleModalRegister" data-bs-toggle="modal">Register</span></span>
                             </form>
                         </div>
                     </div>

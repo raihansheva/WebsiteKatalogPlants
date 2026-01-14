@@ -53,6 +53,6 @@
 }
 
 .area-input-kiri, .area-input-kanan{
-    width: 50%;
+    width: calc(50% - 12px);
     height: auto;
 }
