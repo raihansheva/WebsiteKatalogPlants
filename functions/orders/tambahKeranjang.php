@@ -29,6 +29,16 @@ mysqli_query(
   "UPDATE tanaman SET stok = stok - 1 WHERE id = '$tanaman_id'"
 );
 
+mysqli_query(
+  $koneksi,
+  "UPDATE tanaman 
+   SET status = CASE 
+       WHEN stok - 1 <= 0 THEN 'Habis'
+       ELSE 'Tersedia'
+     END
+   WHERE id = '$tanaman_id'"
+);
+
 $new = mysqli_fetch_assoc(
   mysqli_query(
     $koneksi,
@@ -39,5 +49,6 @@ $new = mysqli_fetch_assoc(
 echo json_encode([
   'success' => true,
   'tanaman_id' => $tanaman_id,
-  'new_stok' => $new['stok']
+  'new_stok' => $new['stok'],
+  'status' => $new['stok'] > 0 ? 'Tersedia' : 'Habis'
 ]);

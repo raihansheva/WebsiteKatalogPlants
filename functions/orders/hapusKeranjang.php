@@ -18,6 +18,16 @@ mysqli_query(
 
 mysqli_query(
     $koneksi,
+    "UPDATE tanaman 
+     SET status = CASE 
+         WHEN stok > 0 THEN 'tersedia'
+         ELSE 'habis'
+     END
+     WHERE id = '{$data['tanaman_id']}'"
+);
+
+mysqli_query(
+    $koneksi,
     "DELETE FROM keranjang WHERE id = '$cart_id'"
 );
 

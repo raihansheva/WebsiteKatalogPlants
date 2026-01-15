@@ -198,7 +198,7 @@
   font-size: 16px;
 }
 
-.button-status{
+.button-status.available {
   width: fit-content;
   height: auto;
   background-color: #d1f0d8;
@@ -206,10 +206,25 @@
   border-radius: 8px;
 }
 
-.status-plant{
+.status-plant.available {
   font-size: 12px;
   font-weight: 500;
   color: #2e7d32;
+  margin: 0px;
+}
+
+.button-status.sold {
+  width: fit-content;
+  height: auto;
+  background-color: #f8d7da;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.status-plant.sold {
+  font-size: 12px;
+  font-weight: 500;
+  color: #c62828;
   margin: 0px;
 }
 

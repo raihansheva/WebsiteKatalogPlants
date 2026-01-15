@@ -27,7 +27,7 @@
   /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  padding: 20px 30px;
+  padding: 10px 30px;
   display: flex;
   align-items: center;
   flex-direction: row;

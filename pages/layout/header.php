@@ -31,7 +31,7 @@ session_start();
             <div class="area-menu-nav">
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#' : 'index.php'; ?>" class="link-menu">Home</a>
                 <a href="plant.php" class="link-menu">Plant & Shop</a>
-                <a href="#" class="link-menu">Categorie</a>
+                <a href="categorie.php" class="link-menu">Categorie</a>
                 <?php if (isset($_SESSION['user'])): ?>
                     <a href="cart.php" class="link-menu">Cart</a>
                 <?php else: ?>

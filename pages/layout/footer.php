@@ -1,3 +1,6 @@
+
+
+
 <footer>
     <div class="area-footer">
       <p class="text-footer">© 2026 Floratify. All rights reserved.</p>
