@@ -12,7 +12,7 @@ $data = mysqli_fetch_assoc($cek);
 if ($data['stok'] <= 0) {
   echo json_encode([
     'success' => false,
-    'message' => 'Stok habis'
+    'message' => '❌ Stok habis'
   ]);
   exit;
 }

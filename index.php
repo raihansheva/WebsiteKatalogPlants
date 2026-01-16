@@ -1,6 +1,6 @@
 <?php
 $page_css = 'index.css';
-include 'layout/header.php';
+include 'pages/layout/header.php';
 ?>
 
 <section>
@@ -50,4 +50,4 @@ include 'layout/header.php';
   </div>
 </section>
 
-<?php include 'layout/footer.php'; ?>
+<?php include 'pages/layout/footer.php'; ?>

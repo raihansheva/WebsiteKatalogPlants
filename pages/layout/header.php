@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+$urlPath = dirname($_SERVER['PHP_SELF']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,22 +32,22 @@ session_start();
         <div class="area-navbar">
             <div class="logo">Floratify.</div>
             <div class="area-menu-nav">
-                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#' : 'index.php'; ?>" class="link-menu">Home</a>
-                <a href="plant.php" class="link-menu">Plant & Shop</a>
-                <a href="categorie.php" class="link-menu">Categorie</a>
+                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#' : '../index.php'; ?>" class="link-menu">Home</a>
+                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/plant.php' : 'plant.php'; ?>" class="link-menu">Plant & Shop</a>
+                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/categorie.php' : 'categorie.php'; ?>" class="link-menu">Categorie</a>
                 <?php if (isset($_SESSION['user'])): ?>
-                    <a href="cart.php" class="link-menu">Cart</a>
+                    <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/cart.php' : 'cart.php'; ?>" class="link-menu">Cart</a>
                 <?php else: ?>
                 <?php endif; ?>
-                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#about' : 'index.php#about'; ?>" class="link-menu">About</a>
+                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#about' : '../index.php#about'; ?>" class="link-menu">About</a>
                 <?php if (isset($_SESSION['user'])): ?>
-                    <?php else: ?>
-                        <div
-                            class="button-register"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModalRegister">
-                            <p class="link-register">Register</p>
-                        </div>
+                <?php else: ?>
+                    <div
+                        class="button-register"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModalRegister">
+                        <p class="link-register">Register</p>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -72,7 +75,7 @@ session_start();
                                     <p class="textNotif"><?= ($_SESSION['error']) ?></p>
                                 </div>
                             <?php endif; ?>
-                            <form class="form-register" action="../functions/regis.php" method="post">
+                            <form class="form-register" action="<?= $urlPath ?>/functions/regis.php" method="post">
                                 <input
                                     class="input-register"
                                     type="text"
@@ -127,7 +130,7 @@ session_start();
                                     <p class="textNotif"><?= ($_SESSION['error']) ?></p>
                                 </div>
                             <?php endif; ?>
-                            <form class="form-login" action="../functions/login.php" method="post">
+                            <form class="form-login" action="<?= $urlPath ?>/functions/login.php" method="post">
                                 <input
                                     class="input-login"
                                     type="text"
@@ -149,3 +152,7 @@ session_start();
             </div>
         </div>
     </div>
+    <script>
+
+
+    </script>

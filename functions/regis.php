@@ -9,7 +9,7 @@ $password    = $_POST['password'] ?? '';
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 if (empty($nama) || empty($email) || empty($username) || empty($password)) {
     $_SESSION['errorRegis'] = "Semua field wajib diisi";
-    header("Location: ../pages/index.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -29,5 +29,5 @@ if (mysqli_query($koneksi, $query)) {
 }
 
 
-header("Location: ../pages/index.php");
+header("Location: ../index.php");
 exit;
