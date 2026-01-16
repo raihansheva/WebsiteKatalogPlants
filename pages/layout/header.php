@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-$urlPath = dirname($_SERVER['PHP_SELF']);
-
+// $urlPath = dirname($_SERVER['PHP_SELF']);
+define('BASE_URL', '/WebsiteKatalogPlants');
+$urlPath = BASE_URL;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +38,8 @@ $urlPath = dirname($_SERVER['PHP_SELF']);
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/categorie.php' : 'categorie.php'; ?>" class="link-menu">Categorie</a>
                 <?php if (isset($_SESSION['user'])): ?>
                     <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/cart.php' : 'cart.php'; ?>" class="link-menu">Cart</a>
-                <?php else: ?>
+                    <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/order.php' : 'order.php'; ?>" class="link-menu">Order</a>
+                    <?php else: ?>
                 <?php endif; ?>
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#about' : '../index.php#about'; ?>" class="link-menu">About</a>
                 <?php if (isset($_SESSION['user'])): ?>
@@ -130,7 +132,7 @@ $urlPath = dirname($_SERVER['PHP_SELF']);
                                     <p class="textNotif"><?= ($_SESSION['error']) ?></p>
                                 </div>
                             <?php endif; ?>
-                            <form class="form-login" action="<?= $urlPath ?>/functions/login.php" method="post">
+                            <form class="form-login" action="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'functions/login.php' : '/WebsiteKatalogPlants/functions/login.php'; ?>" method="post">
                                 <input
                                     class="input-login"
                                     type="text"

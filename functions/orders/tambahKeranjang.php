@@ -1,7 +1,10 @@
 <?php
+session_start();
 include '../../database/koneksi.php';
 
 $tanaman_id = $_POST['tanaman_id'] ?? null;
+
+$user_id = $_SESSION['user_id'];
 
 $cek = mysqli_query(
   $koneksi,
@@ -20,7 +23,7 @@ if ($data['stok'] <= 0) {
 mysqli_query(
   $koneksi,
   "INSERT INTO keranjang (user_id, tanaman_id, quantity)
-   VALUES (1, '$tanaman_id', 1)
+   VALUES ('$user_id', '$tanaman_id', 1)
    ON DUPLICATE KEY UPDATE quantity = quantity + 1"
 );
 
