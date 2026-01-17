@@ -7,22 +7,29 @@
 
 .header-plant-page {
   width: 100%;
-  height: 120px;
+  height: auto;
   text-align: center;
-  background-color: var(--color-primary);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  /* background-image: url('../image/layered-waves-haikei\ \(1\).png');
-  background-size: cover;
-  background-position: bottom; */
-  /* border-radius: 24px; */
+}
+
+.linkBack {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-right: auto;
+}
+
+.linkBack:hover {
+  text-decoration: underline;
 }
 
 .title-plant-page {
   font-size: 36px;
   font-weight: bold;
-  color: var(--color-light);
+  color: var(--color-dark);
 }
 
 .area-content-plant {
@@ -31,11 +38,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .card-plant {
-  width: calc(33.33% - 14px);
+  /* width: calc(50% - 16px); */
+  width: 100%;
   height: fit-content;
   background-color: var(--color-light);
   border-radius: 24px;
@@ -44,13 +52,13 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 .card-plant:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
   border-color: rgba(0, 0, 0, 0.12);
+  /* background-color: var(--color-primary); */
 }
 
 .area-image-plant {
@@ -58,121 +66,12 @@
   height: auto;
   /* border: 1px black solid; */
   border-radius: 14px;
-  background-color: gainsboro;
 }
 
 .image-plant {
   width: 100%;
   height: 100%;
   background-size: cover;
-}
-
-.area-name-plant {
-  width: 100%;
-  height: auto;
-  margin-top: 5px;
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-  padding: 10px;
-}
-
-.area-name-kiri {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.name-plant-order {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 0px;
-  color: var(--color-dark);
-}
-
-.area-top-name{
-  display: flex;
-  flex-direction: row;
-  gap: 6px;
-  justify-content: space-between;
-}
-
-.breads-family-order {
-  background-color: #e6f4f1;
-  padding: 8px 8px;
-  color: var(--color-dark);
-  border-radius: 8px;
-  width: fit-content;
-}
-
-.text-breads-order {
-  font-size: 10px;
-  margin: 0px;
-  font-weight: 500;
-}
-
-.area-cart-order{
-  width: auto;
-  height: auto;
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: end;
-}
-
-.button-cart-order{
-  width: fit-content;
-  height: auto;
-  background-color: var(--color-primary);
-  color: white;
-  padding: 8px 8px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  outline: none;
-  border: none;
-  position: absolute;
-  margin: 10px;
-  /* z-index: 9999; */
-}
-
-.button-cart-order p{
-  margin: 0px;
-  font-size: 12px;
-}
-
-
-.button-status.available {
-  width: fit-content;
-  height: auto;
-  background-color: #d1f0d8;
-  padding: 8px 8px;
-  border-radius: 8px;
-}
-
-.status-plant.available {
-  font-size: 10px;
-  font-weight: 500;
-  color: #2e7d32;
-  margin: 0px;
-}
-
-.button-status.sold {
-  width: fit-content;
-  height: auto;
-  background-color: #f8d7da;
-  padding: 8px 8px;
-  border-radius: 8px;
-}
-
-.status-plant.sold {
-  font-size: 10px;
-  font-weight: 500;
-  color: #c62828;
-  margin: 0px;
 }
 
 .area-detail-plant {
@@ -188,7 +87,7 @@
 
 .image-detail {
   width: 250px;
-  height: 255px;
+  height: auto;
   background-size: cover;
 }
 
@@ -306,25 +205,16 @@
 .area-price-in {
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 12px;
 }
 
-.price-plant {
+.price-plant, .stok-plant {
   margin: 0px;
   padding: 0px;
   font-size: 16px;
-  font-weight: 500;
 }
 
-.stok-plant {
-  margin: 0px;
-  padding: 0px;
-  font-size: 14px;
-  color: rgb(90, 90, 90);
-}
-
-/* .button-status.available {
+.button-status.available {
   width: fit-content;
   height: auto;
   background-color: #d1f0d8;
@@ -352,7 +242,7 @@
   font-weight: 500;
   color: #c62828;
   margin: 0px;
-} */
+}
 
 .area-not-found-plant {
   width: 100%;

@@ -6,84 +6,47 @@ include '../database/koneksi.php';
 
 $sqlT = "SELECT tanaman.*, kategori.nama_kategori 
         FROM tanaman
-        JOIN kategori ON tanaman.kategori_id = kategori.id";
+        JOIN kategori ON tanaman.kategori_id = kategori.id order BY tanaman.id ASC";
 $resultT = $koneksi->query($sqlT);
 
 $isLogin = isset($_SESSION['user_id']);
 ?>
 
+<div class="header-plant-page">
+  <h1 class="title-plant-page">Plants.</h1>
+</div>
 <section>
   <div class="area-plant-page">
-    <div class="header-plant-page">
-      <h1 class="title-plant-page">Plant Gallery</h1>
-    </div>
     <div class="area-content-plant">
       <?php if ($resultT && $resultT->num_rows > 0) { ?>
         <?php while ($row = $resultT->fetch_assoc()): ?>
-          <div class="card-plant" data-bs-toggle="modal"
-            data-bs-target="#exampleModalPlant<?= $row['id'] ?>">
+          <div class="card-plant">
             <div class="area-image-plant">
+              <button
+                class="button-cart-order"
+                data-tanaman-id="<?= $row['id'] ?>"
+                <?= !$isLogin ? 'data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="Harus login untuk menambahkan ke keranjang" disabled' : '' ?>>
+                <p>Add to cart</p>
+              </button>
               <img src="../uploads/<?= $row['foto'] ?>" class="image-plant" alt="">
             </div>
-
-          </div>
-          <div
-            class="modal fade"
-            id="exampleModalPlant<?= $row['id'] ?>"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content rounded-4">
-                <div class="modal-body p-4">
-                  <div class="area-detail-plant">
-                    <div class="area-image-detail">
-                      <img src="../uploads/<?= $row['foto'] ?>" class="image-detail" alt="" srcset="">
-                      <!-- <form action="../functions/orders/tambahKeranjang.php" method="POST">
-                        <input type="hidden" name="tanaman_id" value="<?= $row['id']; ?>">
-                        
-                      </form> -->
-                      <div class="area-button-cart">
-                        <button
-                          class="button-cart"
-                          data-tanaman-id="<?= $row['id'] ?>"
-                          <?= !$isLogin ? 'data-bs-toggle="tooltip"
-    data-bs-placement="bottom"
-    data-bs-custom-class="custom-tooltip"
-    data-bs-title="Harus login untuk menambahkan ke keranjang" disabled' : '' ?>>
-                          <p>Add to cart</p>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="area-content-detail">
-                      <p class="name-plant"><?= $row['nama_tanaman'] ?></p>
-                      <p class="title-location-plant">​Asal & Penemuan</p>
-                      <p class="location-plant"><?= $row['asal_tanaman'] ?></p>
-                      <div class="line-plant"></div>
-                      <p class="title-desk-plant">​Deskripsi</p>
-                      <p class="desk-plant"><?= $row['deskripsi_tanaman'] ?></p>
-                      <div class="area-breads">
-                        <div class="breads-family">
-                          <p class="text-breads"><?= $row['nama_kategori'] ?></p>
-                        </div>
-                        <div class="breads-season">
-                          <p class="text-breads"><?= $row['musim'] ?></p>
-                        </div>
-                      </div>
-                      <div class="area-price">
-                        <div class="area-price-in">
-                          <p class="price-plant">Rp <?= number_format($row['harga'], 0, ',', '.') ?></p>
-                          <span>|</span>
-                          <p class="stok-plant">Stok: <span class="stok-value" data-id="<?= $row['id']; ?>">
-                              <?= $row['stok']; ?>
-                            </span></p>
-                        </div>
-                        <div class="button-status <?= $row['status'] == 'tersedia' ? 'available' : 'sold' ?>" data-status-id="<?= $row['id']; ?>">
-                            <p class="status-plant <?= $row['status'] == 'tersedia' ? 'available' : 'sold' ?>"><?= $row['status'] ?></p>
-                        </div>
-                      </div>
-                    </div>
+            <div class="area-name-plant">
+              <div class="area-name-kiri">
+                <div class="area-top-name">
+                  <div class="breads-family-order">
+                    <p class="text-breads-order"><?= $row['nama_kategori'] ?></p>
                   </div>
+                  <div class="button-status <?= $row['status'] == 'tersedia' ? 'available' : 'sold' ?>" data-status-id="<?= $row['id']; ?>">
+                    <p class="status-plant <?= $row['status'] == 'tersedia' ? 'available' : 'sold' ?>"><?= $row['status'] ?></p>
+                  </div>
+                </div>
+                <p class="name-plant-order"><?= $row['nama_tanaman'] ?></p>
+                <div class="area-price-in">
+                  <p class="price-plant">Rp <?= number_format($row['harga'], 0, ',', '.') ?></p>
+                  <span>|</span>
+                  <p class="stok-plant">Stok: <span class="stok-value" data-id="<?= $row['id']; ?>">
+                      <?= $row['stok']; ?>
+                    </span></p>
                 </div>
               </div>
             </div>
@@ -99,16 +62,6 @@ $isLogin = isset($_SESSION['user_id']);
     </div>
   </div>
 </section>
-<!-- <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100">
-  <div id="cartToast" class="toast align-items-center text-bg-success border-0" role="alert">
-    <div class="d-flex">
-      <div class="toast-body">
-        ✅ Berhasil ditambahkan ke keranjang
-      </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-    </div>
-  </div>
-</div> -->
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
@@ -133,7 +86,7 @@ $isLogin = isset($_SESSION['user_id']);
     delay: 2000
   });
 
-  document.querySelectorAll('.button-cart').forEach(button => {
+  document.querySelectorAll('.button-cart-order').forEach(button => {
     button.addEventListener('click', function() {
       const tanamanId = this.dataset.tanamanId;
 
@@ -159,6 +112,10 @@ $isLogin = isset($_SESSION['user_id']);
               statusText.classList.add('sold');
               statusText.textContent = 'habis';
             } else {
+              statusBox.classList.remove('sold');
+              statusBox.classList.add('available');
+              statusText.classList.remove('sold');
+              statusText.classList.add('available');
               statusText.textContent = 'tersedia';
             }
             const textToast = document.getElementById('textToast');
@@ -176,5 +133,21 @@ $isLogin = isset($_SESSION['user_id']);
     });
   });
 </script>
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+  // Inisialisasi Masonry setelah semua gambar dimuat
+  const grid = document.querySelector('.area-content-plant');
+  imagesLoaded(grid, function() {
+    new Masonry(grid, {
+      itemSelector: '.card-plant',
+      columnWidth: '.card-plant',
+      percentPosition: true,
+      gutter: 20
+    });
+  });
+</script>
+
+
 
 <?php include 'layout/footer.php'; ?>

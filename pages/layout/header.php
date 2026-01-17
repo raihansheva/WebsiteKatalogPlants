@@ -38,7 +38,7 @@ $urlPath = BASE_URL;
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/categorie.php' : 'categorie.php'; ?>" class="link-menu">Categorie</a>
                 <?php if (isset($_SESSION['user'])): ?>
                     <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/cart.php' : 'cart.php'; ?>" class="link-menu">Cart</a>
-                    <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/order.php' : 'order.php'; ?>" class="link-menu">Order</a>
+                    <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/orderItems.php' : 'orderItems.php'; ?>" class="link-menu">Order</a>
                     <?php else: ?>
                 <?php endif; ?>
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#about' : '../index.php#about'; ?>" class="link-menu">About</a>

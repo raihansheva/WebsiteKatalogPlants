@@ -16,15 +16,15 @@ $result = $koneksi->query($sql);
 
 ?>
 
+<div class="header-categorie">
+    <h2 class="title-categorie">Categorie</h2>
+</div>
 <section>
     <div class="area-categorie">
-        <div class="header-categorie">
-            <h2 class="title-categorie">Categorie</h2>
-        </div>
         <div class="area-content-categorie">
             <?php if ($resultKat && $resultKat->num_rows > 0): ?>
                 <?php while ($rowKat = $resultKat->fetch_assoc()): ?>
-                    <a href="categorieDetail.php?id=<?= $rowKat['id'] ?>" class="link-categorie">
+                    <a href="detailCategorie.php?id=<?= $rowKat['id'] ?>" class="link-categorie">
                         <div class="card-categorie">
                             <?= $rowKat['nama_kategori'] ?>
                         </div>

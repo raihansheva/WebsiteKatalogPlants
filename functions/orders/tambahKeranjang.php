@@ -36,8 +36,8 @@ mysqli_query(
   $koneksi,
   "UPDATE tanaman 
    SET status = CASE 
-       WHEN stok - 1 <= 0 THEN 'Habis'
-       ELSE 'Tersedia'
+       WHEN stok <= 0 THEN 'habis'
+       ELSE 'tersedia'
      END
    WHERE id = '$tanaman_id'"
 );
@@ -53,5 +53,5 @@ echo json_encode([
   'success' => true,
   'tanaman_id' => $tanaman_id,
   'new_stok' => $new['stok'],
-  'status' => $new['stok'] > 0 ? 'Tersedia' : 'Habis'
+  'status' => $new['stok'] > 0 ? 'tersedia' : 'habis'
 ]);
