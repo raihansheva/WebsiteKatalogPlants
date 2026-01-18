@@ -1,11 +1,22 @@
 .area-header-cart {
   width: 100%;
-  height: auto;
+  height: 120px;
+  text-align: center;
+  background-color: var(--color-dark);
   display: flex;
-  justify-content: start;
-  align-items: start;
-  flex-direction: column;
-  padding: 20px 0px 10px 0px;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url('../image/layered-waves-haikei\ \(1\).png');
+  background-size: cover;
+  background-position: bottom; */
+  /* border-radius: 24px; */
+  margin-bottom: 20px;
+}
+
+.title-cart {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--color-light);
 }
 
 .area-cart {
@@ -20,12 +31,14 @@
 }
 
 .card-cart {
-  width:  100%;
+  width: 100%;
   height: auto;
   background-color: #fff;
   border-radius: 16px;
   /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 2px 4px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 10px 30px;
   display: flex;
@@ -149,7 +162,6 @@
 
 /* ++++++++++++++++++++++++++++ */
 
-
 .area-cart-modal {
   width: 100%;
   height: auto;
@@ -173,8 +185,7 @@
   margin: 0px;
 }
 
-
-.area-form-cart{
+.area-form-cart {
   width: 100%;
   height: auto;
 }
@@ -214,7 +225,8 @@
   margin-top: 6px;
 }
 
-.input-checkout:focus, .input-checkoutTxt:focus {
+.input-checkout:focus,
+.input-checkoutTxt:focus {
   outline: none;
 }
 
@@ -233,7 +245,7 @@
   margin-top: 20px;
 }
 
-.button-checkout-final{
+.button-checkout-final {
   width: 100%;
   height: auto;
   background-color: var(--color-dark);
@@ -249,5 +261,5 @@
 }
 
 .button-checkout-final:hover {
-  background-color: #202020
+  background-color: #202020;
 }

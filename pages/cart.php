@@ -35,10 +35,10 @@ $dataUser = mysqli_fetch_assoc($resultDataUser);
 
 ?>
 
+<div class="area-header-cart">
+    <h2 class="title-cart">Keranjang Hijau.</h2>
+</div>
 <section>
-    <div class="area-header-cart">
-        <h2>Keranjang Hijau.</h2>
-    </div>
 
     <div class="area-cart">
         <?php if ($totalItems > 0): ?>
@@ -207,7 +207,7 @@ $dataUser = mysqli_fetch_assoc($resultDataUser);
                     const textToast = document.getElementById('textToast');
                     const textAddress = document.getElementById('address');
                     textAddress.value = '';
-                    textToast.textContent = "✅ Berhasil ditambahkan ke keranjang";
+                    textToast.textContent = "✅ Pesanan Tanaman Berhasil Dibuat!";
                     cartToast.show();
                     console.log("berhasil");
                     document.querySelectorAll('.card-cart').forEach(card => {

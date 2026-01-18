@@ -10,6 +10,8 @@ $sqlT = "SELECT tanaman.*, kategori.nama_kategori
 $resultT = $koneksi->query($sqlT);
 
 $isLogin = isset($_SESSION['user_id']);
+// $timeAnimate = [1000, 1300, 1200, 3000, 2000, 3000, 2200];
+// $time = $timeAnimate[rand(0, count($timeAnimate) - 1)];
 ?>
 
 <div class="header-plant-page">
@@ -25,7 +27,7 @@ $isLogin = isset($_SESSION['user_id']);
               <button
                 class="button-cart-order"
                 data-tanaman-id="<?= $row['id'] ?>"
-                <?= !$isLogin ? 'data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="Harus login untuk menambahkan ke keranjang" disabled' : '' ?>>
+                <?= !$isLogin ? 'data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Harus login untuk menambahkan ke keranjang" disabled' : '' ?>>
                 <p>Add to cart</p>
               </button>
               <img src="../uploads/<?= $row['foto'] ?>" class="image-plant" alt="">
@@ -133,20 +135,7 @@ $isLogin = isset($_SESSION['user_id']);
     });
   });
 </script>
-<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script>
-  // Inisialisasi Masonry setelah semua gambar dimuat
-  const grid = document.querySelector('.area-content-plant');
-  imagesLoaded(grid, function() {
-    new Masonry(grid, {
-      itemSelector: '.card-plant',
-      columnWidth: '.card-plant',
-      percentPosition: true,
-      gutter: 20
-    });
-  });
-</script>
+
 
 
 

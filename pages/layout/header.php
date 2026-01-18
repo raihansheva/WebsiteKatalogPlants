@@ -26,6 +26,7 @@ $urlPath = BASE_URL;
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -39,7 +40,7 @@ $urlPath = BASE_URL;
                 <?php if (isset($_SESSION['user'])): ?>
                     <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/cart.php' : 'cart.php'; ?>" class="link-menu">Cart</a>
                     <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/orderItems.php' : 'orderItems.php'; ?>" class="link-menu">Order</a>
-                    <?php else: ?>
+                <?php else: ?>
                 <?php endif; ?>
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#about' : '../index.php#about'; ?>" class="link-menu">About</a>
                 <?php if (isset($_SESSION['user'])): ?>
