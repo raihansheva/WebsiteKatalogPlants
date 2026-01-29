@@ -7,6 +7,7 @@ $password = $_POST['password'] ?? '';
 
 if (empty($username) || empty($password)) {
     $_SESSION['error'] = "Username dan password wajib diisi";
+    $_SESSION['show_modal'] = 'login';
     header("Location: ../index.php");
     exit;
 }
@@ -40,6 +41,7 @@ if ($user['hak_akses'] == 'admin' && password_verify($password, $user['password'
     exit;
 } else {
     $_SESSION['error'] = "Username atau password salah";
+    $_SESSION['show_modal'] = 'login';
     header("Location: ../index.php");
     exit;
 }

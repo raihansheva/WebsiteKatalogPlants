@@ -9,6 +9,7 @@ $password    = $_POST['password'] ?? '';
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 if (empty($nama) || empty($email) || empty($username) || empty($password)) {
     $_SESSION['errorRegis'] = "Semua field wajib diisi";
+    $_SESSION['show_modal'] = 'register';
     header("Location: ../index.php");
     exit;
 }
@@ -23,9 +24,10 @@ if (mysqli_query($koneksi, $query)) {
         'hak_akses' => 'user'
     ];
 
-    $_SESSION['successRegis'] = "Kategori berhasil ditambahkan";
+    $_SESSION['successRegis'] = "Registrasi berhasil";
 } else {
     $_SESSION['errorRegis'] = "Gagal menambahkan kategori";
+    $_SESSION['show_modal'] = 'register';
 }
 
 

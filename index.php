@@ -4,26 +4,28 @@ include 'pages/layout/header.php';
 ?>
 
 <section>
-  <div class="area-welcome">
-    <div class="area-welcome-luar">
-      <div class="area-text-welcome"  data-aos="zoom-in" data-aos-duration="1000">
-        <h1 class="title-welcome">Selamat datang di Floratify.</h1>
-        <p class="desc-welcome">
-          Temukan dunia tanaman di ujung jari Anda. Jelajahi katalog kami yang lengkap, pelajari berbagai jenis tanaman, dan temukan tanaman yang sempurna untuk rumah atau kebun Anda. Baik Anda seorang pekebun berpengalaman maupun baru memulai, Floratify. adalah sumber utama Anda untuk segala hal tentang tanaman hijau dan pertumbuhannya.
-        </p>
+  <div class="sectWelcome">
+    <div class="area-welcome">
+      <div class="area-welcome-luar">
+        <div class="area-text-welcome" data-aos="zoom-in" data-aos-duration="1000">
+          <h1 class="title-welcome">Selamat datang di Floratify.</h1>
+          <p class="desc-welcome">
+            Temukan dunia tanaman di ujung jari Anda. Jelajahi katalog kami yang lengkap, pelajari berbagai jenis tanaman, dan temukan tanaman yang sempurna untuk rumah atau kebun Anda. Baik Anda seorang pekebun berpengalaman maupun baru memulai, Floratify. adalah sumber utama Anda untuk segala hal tentang tanaman hijau dan pertumbuhannya.
+          </p>
+        </div>
+        <div class="area-button-welcome">
+          <a href="plant.php" class="button-explore" data-aos="zoom-in" data-aos-duration="1000">
+            <p class="text-button-explore">Jelajahi Sekarang</p>
+          </a>
+        </div>
       </div>
-      <div class="area-button-welcome">
-        <a href="plant.php" class="button-explore" data-aos="zoom-in" data-aos-duration="1000">
-          <p class="text-button-explore">Jelajahi Sekarang</p>
-        </a>
-      </div>
+      <div class="area-welcome-image" data-aos="fade-up" data-aos-duration="1200"></div>
     </div>
-    <div class="area-welcome-image" data-aos="fade-up" data-aos-duration="1200"></div>
   </div>
 </section>
 <section>
   <div class="area-hero">
-    <div class="area-kiri-hero"  data-aos="zoom-in" data-aos-duration="1000">
+    <div class="area-kiri-hero" data-aos="zoom-in" data-aos-duration="1000">
       <div class="area-image-hero"></div>
     </div>
     <div class="area-kanan-hero" data-aos="fade-left" data-aos-duration="1000">

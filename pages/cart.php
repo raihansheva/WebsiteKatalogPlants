@@ -179,6 +179,7 @@ $dataUser = mysqli_fetch_assoc($resultDataUser);
                         totalPriceEl.textContent = newTotal.toLocaleString('id-ID');
                         const hargaCheckoutEl = document.getElementById('hargaCheckout');
                         hargaCheckoutEl.value = "Rp. " + newTotal.toLocaleString('id-ID');
+                        document.dispatchEvent(new Event('cartUpdated'));
                     }
                 });
         });
@@ -216,6 +217,7 @@ $dataUser = mysqli_fetch_assoc($resultDataUser);
                     modal.hide();
                     const totalItemsEl = document.getElementById('totalItems');
                     totalItemsEl.textContent = 0;
+                    
                 } else {
                     const textToast = document.getElementById('textToast');
                     textToast.textContent = data.message;

@@ -51,10 +51,13 @@ $stmtItem = $koneksi->prepare($sqlItem);
                                     <button class="button-items" data-order-id="<?= $order['id']; ?>">
                                         View Items
                                     </button>
-                                    <button class="button-payment" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalPayment<?= $order['id']; ?>">
-                                        Pay Now
-                                    </button>
+                                    <?php if ($order['status'] === 'pending'): ?>
+                                        <button class="button-payment"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModalPayment<?= $order['id']; ?>">
+                                            Pay Now
+                                        </button>
+                                    <?php endif; ?>
                                 </div>
                                 <div
                                     class="modal fade"
@@ -70,19 +73,24 @@ $stmtItem = $koneksi->prepare($sqlItem);
                                                         <h2 class="title-payCard">Payment</h2>
                                                     </div>
                                                     <div class="area-form-card">
-                                                        <form id="formCheckOut" method="post" data-user-id="<?= $dataUser['id']; ?>">
+                                                        <form
+                                                            id="formCheckOut"
+                                                            method="post"
+                                                            action="../functions/orders/process_payment.php">
+
+                                                            <!-- DATA PENTING -->
+                                                            <input type="hidden" name="order_id" value="<?= $order['id']; ?>">
+                                                            <input type="hidden" name="total_bayar" value="<?= $order['total_harga'] + 10000; ?>">
+
                                                             <div class="card-method">
+
+                                                                <!-- CREDIT CARD -->
                                                                 <div class="area-method">
                                                                     <div class="area-method-kiri">
                                                                         <div class="area-image-method">
-                                                                            <img
-                                                                                src="../asset/image/Mastercard_logo.webp"
-                                                                                alt="Credit Card"
-                                                                                class="image-method">
+                                                                            <img src="../asset/image/Mastercard_logo.webp" class="image-method">
                                                                         </div>
-                                                                        <label for="credit_card_<?= $order['id']; ?>">
-                                                                            Credit Card
-                                                                        </label>
+                                                                        <label for="credit_card_<?= $order['id']; ?>">Credit Card</label>
                                                                     </div>
                                                                     <div class="area-method-kanan">
                                                                         <input
@@ -93,104 +101,95 @@ $stmtItem = $koneksi->prepare($sqlItem);
                                                                             required>
                                                                     </div>
                                                                 </div>
+
+                                                                <!-- DANA -->
                                                                 <div class="area-method">
                                                                     <div class="area-method-kiri">
                                                                         <div class="area-image-method">
-                                                                            <img
-                                                                                src="../asset/image/DANA__1_Logo.jpg"
-                                                                                alt="Credit Card"
-                                                                                class="image-method">
+                                                                            <img src="../asset/image/DANA__1_Logo.jpg" class="image-method">
                                                                         </div>
-                                                                        <label for="credit_card_<?= $order['id']; ?>">
-                                                                            Dana
-                                                                        </label>
+                                                                        <label for="dana_<?= $order['id']; ?>">Dana</label>
                                                                     </div>
                                                                     <div class="area-method-kanan">
                                                                         <input
                                                                             type="radio"
                                                                             name="payment_method"
-                                                                            value="credit_card"
-                                                                            id="credit_card_<?= $order['id']; ?>"
-                                                                            required>
+                                                                            value="dana"
+                                                                            id="dana_<?= $order['id']; ?>">
                                                                     </div>
                                                                 </div>
+
+                                                                <!-- PAYPAL -->
                                                                 <div class="area-method">
                                                                     <div class="area-method-kiri">
                                                                         <div class="area-image-method">
-                                                                            <img
-                                                                                src="../asset/image/PayPal.svg.png"
-                                                                                alt="Credit Card"
-                                                                                class="image-method">
+                                                                            <img src="../asset/image/PayPal.svg.png" class="image-method">
                                                                         </div>
-                                                                        <label for="credit_card_<?= $order['id']; ?>">
-                                                                            Paypal
-                                                                        </label>
+                                                                        <label for="paypal_<?= $order['id']; ?>">Paypal</label>
                                                                     </div>
                                                                     <div class="area-method-kanan">
                                                                         <input
                                                                             type="radio"
                                                                             name="payment_method"
-                                                                            value="credit_card"
-                                                                            id="credit_card_<?= $order['id']; ?>"
-                                                                            required>
+                                                                            value="paypal"
+                                                                            id="paypal_<?= $order['id']; ?>">
                                                                     </div>
                                                                 </div>
+
+                                                                <!-- QRIS -->
                                                                 <div class="area-method">
                                                                     <div class="area-method-kiri">
                                                                         <div class="area-image-method">
-                                                                            <img
-                                                                                src="../asset/image/QRIS_Logo.svg.png"
-                                                                                alt="Credit Card"
-                                                                                class="image-method">
+                                                                            <img src="../asset/image/QRIS_Logo.svg.png" class="image-method">
                                                                         </div>
-                                                                        <label for="credit_card_<?= $order['id']; ?>">
-                                                                            Qris
-                                                                        </label>
+                                                                        <label for="qris_<?= $order['id']; ?>">QRIS</label>
                                                                     </div>
                                                                     <div class="area-method-kanan">
                                                                         <input
                                                                             type="radio"
                                                                             name="payment_method"
-                                                                            value="credit_card"
-                                                                            id="credit_card_<?= $order['id']; ?>"
-                                                                            required>
+                                                                            value="qris"
+                                                                            id="qris_<?= $order['id']; ?>">
                                                                     </div>
                                                                 </div>
+
                                                             </div>
+
                                                             <div class="line-payment"></div>
+
+                                                            <!-- STRUK -->
                                                             <div class="area-struk">
                                                                 <div class="area-total-bayar">
-                                                                    <p class="text-total-bayar">
-                                                                        Harga Total Barang :
-                                                                    </p>
+                                                                    <p class="text-total-bayar">Harga Total Barang :</p>
                                                                     <p class="price-total-bayar">
-                                                                        Rp. <span id="priceTotal"><?= number_format($order['total_harga'], 0, ',', '.'); ?></span>
+                                                                        Rp. <?= number_format($order['total_harga'], 0, ',', '.'); ?>
                                                                     </p>
                                                                 </div>
+
                                                                 <div class="area-total-bayar">
-                                                                    <p class="text-total-bayar">
-                                                                        Biaya Pengiriman :
-                                                                    </p>
+                                                                    <p class="text-total-bayar">Biaya Pengiriman :</p>
                                                                     <p class="price-total-bayar">
-                                                                        Rp. <span id="priceShip"><?= number_format(10000, 0, ',', '.'); ?></span>
+                                                                        Rp. <?= number_format(10000, 0, ',', '.'); ?>
                                                                     </p>
                                                                 </div>
+
                                                                 <div class="area-total-bayar">
-                                                                    <p class="text-total-bayar">
-                                                                        Total Pembayaran :
-                                                                    </p>
+                                                                    <p class="text-total-bayar">Total Pembayaran :</p>
                                                                     <p class="price-total-bayar">
-                                                                        Rp. <span class="priceTotalFinal" data-idPrice="<?= $order['id']; ?>"></span>
+                                                                        Rp. <?= number_format($order['total_harga'] + 10000, 0, ',', '.'); ?>
                                                                     </p>
                                                                 </div>
                                                             </div>
+
                                                             <div class="area-button-payment-final">
                                                                 <button class="button-payment-final" type="submit">
                                                                     Checkout Sekarang
                                                                 </button>
                                                             </div>
+
                                                         </form>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>

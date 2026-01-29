@@ -27,6 +27,8 @@ $urlPath = BASE_URL;
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -73,9 +75,9 @@ $urlPath = BASE_URL;
                             <h2 class="title-brand-register">Floratify.</h2>
                             <div class="line"></div>
                             <h2 class="title-register">Register</h2>
-                            <?php if (isset($_SESSION['error'])): ?>
+                            <?php if (isset($_SESSION['errorRegis'])): ?>
                                 <div class="notifAlert">
-                                    <p class="textNotif"><?= ($_SESSION['error']) ?></p>
+                                    <p class="textNotif"><?= ($_SESSION['errorRegis']) ?></p>
                                 </div>
                             <?php endif; ?>
                             <form class="form-register" action="<?= $urlPath ?>/functions/regis.php" method="post">
@@ -156,6 +158,42 @@ $urlPath = BASE_URL;
         </div>
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            <?php if (isset($_SESSION['show_modal'])): ?>
+                let modalId = "<?php echo $_SESSION['show_modal']; ?>";
 
+                if (modalId === "login") {
+                    let loginModal = new bootstrap.Modal(
+                        document.getElementById("exampleModalLogin")
+                    );
+                    loginModal.show();
+                }
 
+                if (modalId === "register") {
+                    let registerModal = new bootstrap.Modal(
+                        document.getElementById("exampleModalRegister")
+                    );
+                    registerModal.show();
+                }
+            <?php endif; ?>
+
+            function clearModalSession() {
+                fetch('/WebsiteKatalogPlants/functions/clear_modal.php');
+            }
+
+            const loginModalEl = document.getElementById('exampleModalLogin');
+            const registerModalEl = document.getElementById('exampleModalRegister');
+
+            if (loginModalEl) {
+                loginModalEl.addEventListener('hidden.bs.modal', function() {
+                    clearModalSession();
+                });
+            }
+
+            if (registerModalEl) {
+                registerModalEl.addEventListener('hidden.bs.modal', function() {
+                    clearModalSession();
+                });
+            }
+        });
     </script>

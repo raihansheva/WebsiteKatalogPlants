@@ -1,0 +1,94 @@
+.area-header-dashboard{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.title-dashboard{
+    font-size: 30px;
+    margin: 0px;
+}
+
+.area-grid-dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.area-kiri {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 320px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* contoh judul statistik */
+.area-kiri h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* area chart / angka */
+.statistik-penjualan {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.stat-card {
+  background: #f8f9fc;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.area-kanan-1,
+.area-kanan-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-kanan {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  flex: 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titleTotal{
+    margin: 0px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.total {
+  margin: 0px;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.lineHead {
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-dark);
+  border-radius: 8px;
+}
+
+.area-atas {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.area-bawah {
+  width: auto;
+  height: auto;
+}

@@ -31,6 +31,7 @@ session_start();
           <a href="dashboard.php" class="link-menu">Dashboard</a>
           <a href="adminPlant.php" class="link-menu">Plants</a>
           <a href="adminCategories.php" class="link-menu">Kategori</a>
+          <a href="adminOrder.php" class="link-menu">Order</a>
           <div
             class="button-login"
             data-bs-toggle="modal"

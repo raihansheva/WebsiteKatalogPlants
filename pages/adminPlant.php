@@ -13,9 +13,9 @@ $resultK = $koneksi->query($sqlK);
 ?>
 
 <section>
-    <div class="area-data-Tanaman">
-        <h2 class="title-page-Tanaman">Page Tanaman</h2>
-        <div class="header-data-Tanaman">
+    <div class="area-data-tanaman">
+        <h2 class="title-page-tanaman">Page Tanaman</h2>
+        <div class="header-data-tanaman">
             <div class="button-input-tan" data-bs-toggle="modal" data-bs-target="#exampleModalInputTanaman">
                 <p>Tambah Tanaman</p>
             </div>

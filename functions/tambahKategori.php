@@ -2,23 +2,19 @@
 session_start();
 require_once '../database/koneksi.php';
 
-$namaKategori = $_POST['nama_kategori'] ?? '';
-$deskripsi    = $_POST['deskripsi'] ?? '';
 
-if (empty($namaKategori) || empty($deskripsi)) {
-    $_SESSION['errorKategori'] = "Semua field wajib diisi";
+$nama = $_REQUEST['nama_kategori'];
+$deskripsi = $_REQUEST['deskripsi'];
+
+if (empty($nama) || empty($deskripsi)) {
+    $_SESSION['errorKategori'] = "Username dan password wajib diisi";
     header("Location: ../pages/adminCategories.php");
     exit;
 }
 
-$query = "INSERT INTO kategori (nama_kategori, deskripsi)
-          VALUES ('$namaKategori', '$deskripsi')";
-
-if (mysqli_query($koneksi, $query)) {
-    $_SESSION['successKategori'] = "Kategori berhasil ditambahkan";
-} else {
-    $_SESSION['errorKategori'] = "Gagal menambahkan kategori";
-}
+$query = "INSERT INTO kategori (nama_kategori, deskripsi, created_at, updated_at) 
+          VALUES ('$nama', '$deskripsi' , now() , now())";
+$result = mysqli_query($koneksi, $query);
 
 header("Location: ../pages/adminCategories.php");
 exit;

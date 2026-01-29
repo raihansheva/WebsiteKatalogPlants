@@ -64,7 +64,7 @@ $isLogin = isset($_SESSION['user_id']);
     </div>
   </div>
 </section>
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div class="toast-container position-fixed bottom-0 start-0 p-3">
   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
 
@@ -123,6 +123,7 @@ $isLogin = isset($_SESSION['user_id']);
             const textToast = document.getElementById('textToast');
             textToast.textContent = "✅ Berhasil ditambahkan ke keranjang";
             cartToast.show();
+            document.dispatchEvent(new Event('cartUpdated'));
           } else {
             const textToast = document.getElementById('textToast');
             textToast.textContent = data.message;
