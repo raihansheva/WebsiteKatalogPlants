@@ -36,6 +36,7 @@ if ($user['hak_akses'] == 'admin' && password_verify($password, $user['password'
         'username' => $username,
         'hak_akses' => 'user'
     ];
+    $_SESSION['role'] = "user";
     $_SESSION['succesLogin'] = "Login berhasil";
     header("Location: ../index.php");
     exit;

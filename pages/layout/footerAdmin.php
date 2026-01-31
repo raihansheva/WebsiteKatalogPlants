@@ -1,35 +1,6 @@
 
-<?php if (isset($_SESSION['role']) && $_SESSION['role'] !== 'admin') { ?>
-  <div id="cart-float">
-    <button id="cart-toggle">
-      <i class='bx bx-cart'></i>
-      <span id="cart-count" class="cart-badge">0</span>
-    </button>
-
-    <div id="cart-panel">
-      <div class="cart-header">
-        <h5 class="title-cart">Cart.</h5>
-        <i id="cart-close" class='bx bx-x iconClose'></i>
-      </div>
-
-      <div id="cart-float-body" class="cart-body">
-        <p class="text-muted">Keranjang kosong</p>
-      </div>
-
-      <div class="cart-footer">
-        <!-- tombol checkout -->
-      </div>
-    </div>
-  </div>
-<?php } ?>
-
-
-
-<footer>
-  <div class="area-footer">
-    <p class="text-footer">© 2026 Floratify. All rights reserved.</p>
-  </div>
-</footer>
+  </main>
+</div>
 <script src="/WebsiteKatalogPlants/asset/js/index.js"></script>
 <?php if (isset($_SESSION['error']) && empty($_SESSION['just_logged_out'])): ?>
   <script>
