@@ -8,7 +8,7 @@
 
     <div id="cart-panel">
       <div class="cart-header">
-        <h5 class="title-cart">Cart.</h5>
+        <h5 class="title-cart-mini">Keranjang</h5>
         <i id="cart-close" class='bx bx-x iconClose'></i>
       </div>
 

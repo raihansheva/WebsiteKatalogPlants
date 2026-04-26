@@ -140,7 +140,7 @@ $dataUser = mysqli_fetch_assoc($resultDataUser);
         </div>
     </div>
 </div>
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div class="toast-container position-fixed bottom-0 start-0 p-3">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
 
@@ -217,7 +217,7 @@ $dataUser = mysqli_fetch_assoc($resultDataUser);
                     modal.hide();
                     const totalItemsEl = document.getElementById('totalItems');
                     totalItemsEl.textContent = 0;
-                    
+                    document.dispatchEvent(new Event('cartUpdated'));
                 } else {
                     const textToast = document.getElementById('textToast');
                     textToast.textContent = data.message;

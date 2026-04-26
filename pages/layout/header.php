@@ -39,12 +39,41 @@ $urlPath = BASE_URL;
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#' : '../index.php'; ?>" class="link-menu">Home</a>
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/plant.php' : 'plant.php'; ?>" class="link-menu">Plant & Shop</a>
                 <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/categorie.php' : 'categorie.php'; ?>" class="link-menu">Categorie</a>
+                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#about' : '../index.php#about'; ?>" class="link-menu">About</a>
                 <?php if (isset($_SESSION['user'])): ?>
                     <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/cart.php' : 'cart.php'; ?>" class="link-menu">Cart</a>
                     <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'pages/orderItems.php' : 'orderItems.php'; ?>" class="link-menu">Order</a>
+                    <a class="link-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Profile
+                    </a>
                 <?php else: ?>
                 <?php endif; ?>
-                <a href="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? '#about' : '../index.php#about'; ?>" class="link-menu">About</a>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <ul class="dropdown-menu dropdown-menu-end p-3" style="min-width: 250px;">
+                        <!-- Info User -->
+                        <li class="mb-2">
+                            <div class="fw-semibold">
+                                <?= htmlspecialchars($_SESSION['user']['nama']); ?>
+                            </div>
+                            <div class="text-muted small">
+                                <?= htmlspecialchars($_SESSION['user']['email']); ?>
+                            </div>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        </li>
+
+                        <li>
+                            <form action="/WebsiteKatalogPlants/functions/logout.php" method="post">
+                                <button class="dropdown-item text-danger" type="submit">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                <?php endif; ?>
                 <?php if (isset($_SESSION['user'])): ?>
                 <?php else: ?>
                     <div
@@ -54,6 +83,7 @@ $urlPath = BASE_URL;
                         <p class="link-register">Register</p>
                     </div>
                 <?php endif; ?>
+
             </div>
         </div>
     </nav>

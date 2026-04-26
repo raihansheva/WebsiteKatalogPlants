@@ -18,11 +18,20 @@ $query = "INSERT INTO users (nama, email, username, password, hak_akses)
           VALUES ('$nama', '$email' , '$username' , '$hashedPassword' , 'user')";
 
 if (mysqli_query($koneksi, $query)) {
+    $userId = mysqli_insert_id($koneksi);
+
+    $_SESSION['user_id'] = $userId;
+    $_SESSION['login'] = true;
     $_SESSION['user'] = [
+        'id' => $userId,
         'nama' => $nama,
         'username' => $username,
+        'email' => $email,
         'hak_akses' => 'user'
     ];
+
+
+    $_SESSION['role'] = "user";
 
     $_SESSION['successRegis'] = "Registrasi berhasil";
 } else {

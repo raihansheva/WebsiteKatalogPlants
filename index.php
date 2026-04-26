@@ -14,7 +14,7 @@ include 'pages/layout/header.php';
           </p>
         </div>
         <div class="area-button-welcome">
-          <a href="plant.php" class="button-explore" data-aos="zoom-in" data-aos-duration="1000">
+          <a href="pages/categorie.php" class="button-explore" data-aos="zoom-in" data-aos-duration="1000">
             <p class="text-button-explore">Jelajahi Sekarang</p>
           </a>
         </div>

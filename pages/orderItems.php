@@ -73,10 +73,8 @@ $stmtItem = $koneksi->prepare($sqlItem);
                                                         <h2 class="title-payCard">Payment</h2>
                                                     </div>
                                                     <div class="area-form-card">
-                                                        <form
-                                                            id="formCheckOut"
-                                                            method="post"
-                                                            action="../functions/orders/process_payment.php">
+                                                        <form class="form-checkout" data-order-id="<?= $order['id']; ?>">
+
 
                                                             <!-- DATA PENTING -->
                                                             <input type="hidden" name="order_id" value="<?= $order['id']; ?>">
@@ -256,6 +254,16 @@ $stmtItem = $koneksi->prepare($sqlItem);
         </div>
     </div>
 </section>
+<div class="toast-container position-fixed bottom-0 start-0 p-3">
+    <div id="paymentToast" class="toast">
+        <div class="toast-header">
+            <strong class="me-auto">Floratify 🌿</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body" id="toastText"></div>
+    </div>
+</div>
+
 <script>
     document.querySelectorAll('.button-items').forEach(button => {
         button.addEventListener('click', () => {
@@ -283,5 +291,44 @@ $stmtItem = $koneksi->prepare($sqlItem);
         el.textContent = new Intl.NumberFormat('id-ID').format(totalPayment);
     });
 </script>
+<script>
+    document.querySelectorAll('.form-checkout').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const modal = this.closest('.modal');
+
+            fetch('../functions/orders/process_payment.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    const toastEl = document.getElementById('paymentToast');
+                    const toastText = document.getElementById('toastText');
+                    const toast = new bootstrap.Toast(toastEl, {
+                        delay: 2500
+                    });
+
+                    toastText.textContent = data.message;
+                    toast.show();
+
+                    if (data.success) {
+                        // tutup modal
+                        const modalInstance = bootstrap.Modal.getInstance(modal);
+                        modalInstance.hide();
+
+                        // reload halaman biar status berubah
+                        setTimeout(() => location.reload(), 1200);
+                    }
+                })
+                .catch(() => {
+                    alert('Terjadi kesalahan pembayaran');
+                });
+        });
+    });
+</script>
+
 
 <?php include 'layout/footer.php'; ?>
